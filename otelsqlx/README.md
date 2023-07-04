@@ -1,4 +1,4 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/uptrace/opentelemetry-go-extra/otelsql)](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsqlx)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/rlakhtakia/opentelemetry-go-extra/otelsql)](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx)
 
 # sqlx instrumentation for OpenTelemetry Go
 
@@ -6,7 +6,7 @@ otelsqlx instrumentation records [sqlx](https://github.com/jmoiron/sqlx) queries
 `Stmt` queries) and reports `DBStats` metrics.
 
 ```shell
-go get github.com/uptrace/opentelemetry-go-extra/otelsqlx
+go get github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ To instrument sqlx, you need to connect to a database using the API provided by 
 
 ```go
 import (
-    "github.com/uptrace/opentelemetry-go-extra/otelsqlx"
+    "github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx"
     semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
     _ "modernc.org/sqlite"
 )
@@ -53,11 +53,11 @@ See [example](/example/) for details.
 ## Options
 
 otelsqlx accepts all the options from
-[otelsql](https://github.com/uptrace/opentelemetry-go-extra/tree/main/otelsql) package, for example:
+[otelsql](https://github.com/rlakhtakia/opentelemetry-go-extra/tree/main/otelsql) package, for example:
 
 ```go
 import (
-    "github.com/uptrace/opentelemetry-go-extra/otelsqlx"
+    "github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx"
     semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
     _ "modernc.org/sqlite"
 )

@@ -1,4 +1,4 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/uptrace/opentelemetry-go-extra/otelzap)](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelzap)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/rlakhtakia/opentelemetry-go-extra/otelzap)](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelzap)
 
 # Zap OpenTelemetry instrumentation
 
@@ -9,7 +9,7 @@ as a first argument. It does not record anything if the context does not contain
 ## Installation
 
 ```shell
-go get github.com/uptrace/opentelemetry-go-extra/otelzap
+go get github.com/rlakhtakia/opentelemetry-go-extra/otelzap
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ You need to create an `otelzap.Logger` using this package and pass a
 ```go
 import (
     "go.uber.org/zap"
-    "github.com/uptrace/opentelemetry-go-extra/otelzap"
+    "github.com/rlakhtakia/opentelemetry-go-extra/otelzap"
 )
 
 // Wrap zap logger to extend Zap with API that accepts a context.Context.
@@ -48,7 +48,7 @@ package main
 
 import (
 	"go.uber.org/zap"
-	"github.com/uptrace/opentelemetry-go-extra/otelzap"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelzap"
 )
 
 func main() {
@@ -90,8 +90,8 @@ sugar.InfofContext(ctx, "Failed to fetch URL: %s", url)
 
 ## Options
 
-[otelzap.New](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelzap#New) accepts a
-couple of [options](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelzap#Option):
+[otelzap.New](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelzap#New) accepts a
+couple of [options](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelzap#Option):
 
 - `otelzap.WithMinLevel(zap.WarnLevel)` sets the minimal zap logging level on which the log message
   is recorded on the span.

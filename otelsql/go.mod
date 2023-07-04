@@ -1,6 +1,6 @@
-module github.com/uptrace/opentelemetry-go-extra/otelsql
+module github.com/rlakhtakia/opentelemetry-go-extra/otelsql
 
-go 1.18
+go 1.19
 
 require (
 	go.opentelemetry.io/otel v1.16.0
@@ -12,3 +12,7 @@ require (
 	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 )
+
+replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+
+replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra

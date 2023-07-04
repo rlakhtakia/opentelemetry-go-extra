@@ -1,4 +1,4 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/uptrace/opentelemetry-go-extra/otelgraphql)](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelgraphql)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/rlakhtakia/opentelemetry-go-extra/otelgraphql)](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelgraphql)
 
 # OpenTelemetry Go instrumentation for the graphql-go GraphQL Server
 
@@ -7,7 +7,7 @@ This instrumentation records GraphQL operations using OpenTelemetry API.
 ## Installation
 
 ```shell
-go get github.com/uptrace/opentelemetry-go-extra/otelgraphql
+go get github.com/rlakhtakia/opentelemetry-go-extra/otelgraphql
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ import (
   "github.com/graph-gophers/graphql-go"
   "github.com/graph-gophers/graphql-go/relay"
 
-  "github.com/uptrace/opentelemetry-go-extra/otelgraphql"
+  "github.com/rlakhtakia/opentelemetry-go-extra/otelgraphql"
 )
 
 tracer := otelgraphql.NewTracer(otelgraphql.WithTracerProvider(traceProvider))

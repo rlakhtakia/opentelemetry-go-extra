@@ -10,7 +10,7 @@ import (
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 	"go.opentelemetry.io/otel/trace"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelplay"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelplay"
 )
 
 func main() {

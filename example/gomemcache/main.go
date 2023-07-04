@@ -10,7 +10,7 @@ import (
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/trace"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelplay"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelplay"
 )
 
 var tracer = otel.Tracer("app_or_package_name")

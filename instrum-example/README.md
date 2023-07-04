@@ -3,7 +3,7 @@
 ## Installation
 
 ```shell
-go get github.com/uptrace/opentelemetry-go-extra/otelpackage
+go get github.com/rlakhtakia/opentelemetry-go-extra/otelpackage
 ```
 
 ## Usage

@@ -1,4 +1,4 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/uptrace/opentelemetry-go-extra/otelgorm)](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelgorm)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/rlakhtakia/opentelemetry-go-extra/otelgorm)](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelgorm)
 
 # GORM OpenTelemetry instrumentation
 
@@ -8,7 +8,7 @@ records database queries and reports `DBStats` metrics.
 ## Installation
 
 ```shell
-go get github.com/uptrace/opentelemetry-go-extra/otelgorm
+go get github.com/rlakhtakia/opentelemetry-go-extra/otelgorm
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ To instrument GORM, you need to install the plugin provided by otelgorm:
 
 ```go
 import (
-	"github.com/uptrace/opentelemetry-go-extra/otelgorm"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelgorm"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -47,11 +47,11 @@ See [example](/example/) for details.
 ## Options
 
 You can customize the plugin using configuration
-[options](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelgorm#Option):
+[options](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelgorm#Option):
 
-- [WithAttributes](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelgorm#WithAttributes)
+- [WithAttributes](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelgorm#WithAttributes)
   configures attributes that are used to create a span.
-- [WithDBName](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelgorm#WithDBName)
+- [WithDBName](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelgorm#WithDBName)
   configures a `db.name` attribute.
 
 For example:

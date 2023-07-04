@@ -10,7 +10,7 @@ import (
 	"go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin"
 	"go.opentelemetry.io/otel/trace"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelplay"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelplay"
 )
 
 const (

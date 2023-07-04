@@ -7,8 +7,8 @@ import (
 	"github.com/sirupsen/logrus"
 	"go.opentelemetry.io/otel"
 
-	"github.com/uptrace/opentelemetry-go-extra/otellogrus"
-	"github.com/uptrace/opentelemetry-go-extra/otelplay"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otellogrus"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelplay"
 )
 
 func main() {

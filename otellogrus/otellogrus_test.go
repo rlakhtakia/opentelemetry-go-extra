@@ -93,7 +93,7 @@ func TestOtelLogrus(t *testing.T) {
 
 				fn, ok := m[semconv.CodeFunctionKey]
 				require.True(t, ok)
-				require.Contains(t, fn.AsString(), "github.com/uptrace/opentelemetry-go-extra/otellogrus.TestOtelLogrus")
+				require.Contains(t, fn.AsString(), "opentelemetry-go-extra/otellogrus.TestOtelLogrus")
 
 				file, ok := m[semconv.CodeFilepathKey]
 				require.True(t, ok)

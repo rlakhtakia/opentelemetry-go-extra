@@ -11,8 +11,8 @@ import (
 	"github.com/graph-gophers/graphql-go"
 	"github.com/graph-gophers/graphql-go/relay"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelgraphql"
-	"github.com/uptrace/opentelemetry-go-extra/otelplay"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelgraphql"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelplay"
 )
 
 const schemaString = `

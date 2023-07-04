@@ -1,4 +1,4 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/uptrace/opentelemetry-go-extra/otellogrus)](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otellogrus)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/rlakhtakia/opentelemetry-go-extra/otellogrus)](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otellogrus)
 
 # OpenTelemetry Go instrumentation for logrus logging
 
@@ -8,7 +8,7 @@ This instrumentation records logrus log messages as events on the existing span 
 ## Installation
 
 ```shell
-go get github.com/uptrace/opentelemetry-go-extra/otellogrus
+go get github.com/rlakhtakia/opentelemetry-go-extra/otellogrus
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ You need to install an `otellogrus.Hook` and use `logrus.WithContext` to propaga
 
 ```go
 import (
-    "github.com/uptrace/opentelemetry-go-extra/otellogrus"
+    "github.com/rlakhtakia/opentelemetry-go-extra/otellogrus"
     "github.com/sirupsen/logrus"
 )
 
@@ -40,9 +40,9 @@ See [example](/example/) for details.
 
 ## Options
 
-[otellogrus.NewHook](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otellogrus#NewHook)
+[otellogrus.NewHook](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otellogrus#NewHook)
 accepts the following
-[options](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otellogrus#Option):
+[options](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otellogrus#Option):
 
 - `otellogrus.WithLevels(logrus.PanicLevel, logrus.FatalLevel, logrus.ErrorLevel, logrus.WarnLevel)`
   sets the logrus logging levels on which the hook is fired.

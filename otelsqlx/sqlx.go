@@ -5,7 +5,7 @@ import (
 
 	"github.com/jmoiron/sqlx"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelsql"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelsql"
 )
 
 // Connect to a database and verify with a ping.

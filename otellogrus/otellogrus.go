@@ -11,7 +11,7 @@ import (
 	semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
 	"go.opentelemetry.io/otel/trace"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelutil"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelutil"
 )
 
 var (

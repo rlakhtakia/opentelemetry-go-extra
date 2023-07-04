@@ -15,7 +15,7 @@ import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelgorm"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelgorm"
 )
 
 type Test struct {

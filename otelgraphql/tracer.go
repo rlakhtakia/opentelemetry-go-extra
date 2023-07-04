@@ -14,14 +14,14 @@ import (
 	"go.opentelemetry.io/otel/codes"
 	oteltrace "go.opentelemetry.io/otel/trace"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelutil"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelutil"
 )
 
 type Tracer struct {
 	tracer oteltrace.Tracer
 }
 
-const tracerName = "github.com/uptrace/opentelemetry-go-extra/otelgraphql"
+const tracerName = "github.com/rlakhtakia/opentelemetry-go-extra/otelgraphql"
 
 func NewTracer(opts ...Option) *Tracer {
 	cfg := config{}

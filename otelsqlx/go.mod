@@ -1,12 +1,12 @@
-module github.com/uptrace/opentelemetry-go-extra/otelsqlx
+module github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx
 
-go 1.18
+go 1.19
 
-replace github.com/uptrace/opentelemetry-go-extra/otelsql => ../otelsql
+replace github.com/rlakhtakia/opentelemetry-go-extra/otelsql => ../otelsql
 
 require (
 	github.com/jmoiron/sqlx v1.3.5
-	github.com/uptrace/opentelemetry-go-extra/otelsql v0.2.2
+	github.com/rlakhtakia/opentelemetry-go-extra/otelsql v0.2.2
 )
 
 require (
@@ -16,3 +16,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.16.0 // indirect
 	go.opentelemetry.io/otel/trace v1.16.0 // indirect
 )
+
+replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+
+replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra

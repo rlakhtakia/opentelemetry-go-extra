@@ -1,6 +1,6 @@
-module github.com/uptrace/opentelemetry-go-extra/example/prometheus/metrics
+module github.com/rlakhtakia/opentelemetry-go-extra/example/prometheus/metrics
 
-go 1.18
+go 1.19
 
 require (
 	github.com/prometheus/client_golang v1.16.0
@@ -23,6 +23,10 @@ require (
 	github.com/prometheus/procfs v0.11.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.16.0 // indirect
 	go.opentelemetry.io/otel/trace v1.16.0 // indirect
-	golang.org/x/sys v0.9.0 // indirect
-	google.golang.org/protobuf v1.30.0 // indirect
+	golang.org/x/sys v0.10.0 // indirect
+	google.golang.org/protobuf v1.31.0 // indirect
 )
+
+replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+
+replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra

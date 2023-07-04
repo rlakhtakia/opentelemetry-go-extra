@@ -8,8 +8,8 @@ import (
 	"go.opentelemetry.io/otel"
 	"go.uber.org/zap"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelplay"
-	"github.com/uptrace/opentelemetry-go-extra/otelzap"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelplay"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelzap"
 )
 
 func main() {

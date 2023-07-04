@@ -14,7 +14,7 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"gorm.io/gorm"
 
-	"github.com/uptrace/opentelemetry-go-extra/otelsql"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelsql"
 )
 
 var dbRowsAffected = attribute.Key("db.rows_affected")
@@ -38,7 +38,7 @@ func NewPlugin(opts ...Option) gorm.Plugin {
 	if p.provider == nil {
 		p.provider = otel.GetTracerProvider()
 	}
-	p.tracer = p.provider.Tracer("github.com/uptrace/opentelemetry-go-extra/otelgorm")
+	p.tracer = p.provider.Tracer("github.com/rlakhtakia/opentelemetry-go-extra/otelgorm")
 
 	return p
 }

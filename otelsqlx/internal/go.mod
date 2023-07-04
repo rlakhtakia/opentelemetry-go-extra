@@ -1,15 +1,15 @@
-module github.com/uptrace/opentelemetry-go-extra/otelsqlx/internal
+module github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx/internal
 
-go 1.18
+go 1.19
 
-replace github.com/uptrace/opentelemetry-go-extra/otelsqlx => ../
+replace github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx => ../
 
-replace github.com/uptrace/opentelemetry-go-extra/otelsql => ../../otelsql
+replace github.com/rlakhtakia/opentelemetry-go-extra/otelsql => ../../otelsql
 
 require (
+	github.com/rlakhtakia/opentelemetry-go-extra/otelsql v0.2.2
+	github.com/rlakhtakia/opentelemetry-go-extra/otelsqlx v0.2.2
 	github.com/stretchr/testify v1.8.3
-	github.com/uptrace/opentelemetry-go-extra/otelsql v0.2.2
-	github.com/uptrace/opentelemetry-go-extra/otelsqlx v0.2.2
 	go.opentelemetry.io/otel v1.16.0
 	go.opentelemetry.io/otel/sdk v1.15.1
 	modernc.org/sqlite v1.20.3
@@ -43,3 +43,7 @@ require (
 	modernc.org/strutil v1.1.3 // indirect
 	modernc.org/token v1.0.1 // indirect
 )
+
+replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+
+replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra

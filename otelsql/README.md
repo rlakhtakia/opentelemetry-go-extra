@@ -1,4 +1,4 @@
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/uptrace/opentelemetry-go-extra/otelsql)](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsql)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/rlakhtakia/opentelemetry-go-extra/otelsql)](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsql)
 
 # database/sql instrumentation for OpenTelemetry Go
 
@@ -8,7 +8,7 @@ records database queries (including `Tx` and `Stmt` queries) and reports `DBStat
 ## Installation
 
 ```shell
-go get github.com/uptrace/opentelemetry-go-extra/otelsql
+go get github.com/rlakhtakia/opentelemetry-go-extra/otelsql
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ To instrument database/sql, you need to connect to a database using the API prov
 
 ```go
 import (
-	"github.com/uptrace/opentelemetry-go-extra/otelsql"
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelsql"
 	semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
 )
 
@@ -50,15 +50,15 @@ See [example](/example/) for details.
 
 ## Options
 
-Both [otelsql.Open](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsql#Open) and
-[otelsql.OpenDB](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsql#OpenDB) accept
-the same [options](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsql#Option):
+Both [otelsql.Open](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsql#Open) and
+[otelsql.OpenDB](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsql#OpenDB) accept
+the same [options](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsql#Option):
 
-- [WithAttributes](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsql#WithAttributes)
+- [WithAttributes](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsql#WithAttributes)
   configures attributes that are used to create a span.
-- [WithDBName](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsql#WithDBName)
+- [WithDBName](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsql#WithDBName)
   configures a `db.name` attribute.
-- [WithDBSystem](https://pkg.go.dev/github.com/uptrace/opentelemetry-go-extra/otelsql#WithDBSystem)
+- [WithDBSystem](https://pkg.go.dev/github.com/rlakhtakia/opentelemetry-go-extra/otelsql#WithDBSystem)
   configures a `db.system` attribute. When possible, you should prefer using WithAttributes and
   [semconv](https://pkg.go.dev/go.opentelemetry.io/otel/semconv/v1.10.0), for example,
   `otelsql.WithAttributes(semconv.DBSystemSqlite)`.
@@ -69,7 +69,7 @@ You can use otelsql to instrument [sqlboiler](https://github.com/volatiletech/sq
 
 ```go
 import (
-    "github.com/uptrace/opentelemetry-go-extra/otelsql"
+    "github.com/rlakhtakia/opentelemetry-go-extra/otelsql"
     semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
 )
 
@@ -89,7 +89,7 @@ You can use otelsql to instrument [GORM 1](https://v1.gorm.io/):
 ```go
 import (
     "github.com/jinzhu/gorm"
-    "github.com/uptrace/opentelemetry-go-extra/otelsql"
+    "github.com/rlakhtakia/opentelemetry-go-extra/otelsql"
     semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
 )
 
@@ -110,7 +110,7 @@ if err != nil {
 ```
 
 To instrument GORM 2, use
-[otelgorm](https://github.com/uptrace/opentelemetry-go-extra/tree/main/otelgorm).
+[otelgorm](https://github.com/rlakhtakia/opentelemetry-go-extra/tree/main/otelgorm).
 
 ## Alternatives
 

@@ -1,12 +1,12 @@
-module github.com/uptrace/opentelemetry-go-extra/otelzap
+module github.com/rlakhtakia/opentelemetry-go-extra/otelzap
 
-go 1.18
+go 1.19
 
-replace github.com/uptrace/opentelemetry-go-extra/otelutil => ../otelutil
+replace github.com/rlakhtakia/opentelemetry-go-extra/otelutil => ../otelutil
 
 require (
+	github.com/rlakhtakia/opentelemetry-go-extra/otelutil v0.2.2
 	github.com/stretchr/testify v1.8.3
-	github.com/uptrace/opentelemetry-go-extra/otelutil v0.2.2
 	go.opentelemetry.io/otel v1.16.0
 	go.opentelemetry.io/otel/sdk v1.15.1
 	go.opentelemetry.io/otel/trace v1.16.0
@@ -24,3 +24,5 @@ require (
 	golang.org/x/sys v0.7.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
