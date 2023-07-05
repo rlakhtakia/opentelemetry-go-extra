@@ -11,7 +11,7 @@ import (
 
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
-	semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
+	"go.opentelemetry.io/otel/semconv"
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -718,15 +718,7 @@ func appendField(attrs []attribute.KeyValue, f zapcore.Field) []attribute.KeyVal
 
 	case zapcore.ArrayMarshalerType:
 		var attr attribute.KeyValue
-		arrayEncoder := &bufferArrayEncoder{
-			stringsSlice: []string{},
-		}
-		err := f.Interface.(zapcore.ArrayMarshaler).MarshalLogArray(arrayEncoder)
-		if err != nil {
-			attr = attribute.String(f.Key+"_error", fmt.Sprintf("otelzap: unable to marshal array: %v", err))
-		} else {
-			attr = attribute.StringSlice(f.Key, arrayEncoder.stringsSlice)
-		}
+		attr = attribute.String(f.Key+"_error", "otelzap: zapcore.ArrayMarshalerType is not implemented")
 		return append(attrs, attr)
 
 	case zapcore.ObjectMarshalerType:

@@ -5,21 +5,21 @@ import (
 	"errors"
 	"fmt"
 	"testing"
-	"time"
 
 	"go.uber.org/zap/zaptest/observer"
 
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/otel/attribute"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
-	"go.opentelemetry.io/otel/sdk/trace/tracetest"
-	semconv "go.opentelemetry.io/otel/semconv/v1.10.0"
+	"go.opentelemetry.io/otel/semconv"
 	"go.uber.org/zap"
+
+	"github.com/rlakhtakia/opentelemetry-go-extra/otelutil"
 )
 
 type Test struct {
 	log     func(ctx context.Context, log *Logger)
-	require func(t *testing.T, event sdktrace.Event)
+	require func(t *testing.T, event otelutil.Event)
 }
 
 func TestOtelZap(t *testing.T) {
@@ -28,7 +28,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Ctx(ctx).Info("hello")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -46,7 +46,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.InfoContext(ctx, "hello")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -64,7 +64,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Ctx(ctx).Warn("hello", zap.String("foo", "bar"))
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -81,90 +81,12 @@ func TestOtelZap(t *testing.T) {
 
 				requireCodeAttrs(t, m)
 			},
-		},
-		{
-			log: func(ctx context.Context, log *Logger) {
-				log.Ctx(ctx).Warn("hello", zap.Strings("foo", []string{"bar1", "bar2", "bar3"}))
-			},
-			require: func(t *testing.T, event sdktrace.Event) {
-				m := attrMap(event.Attributes)
-
-				sev, ok := m[logSeverityKey]
-				require.True(t, ok)
-				require.Equal(t, "WARN", sev.AsString())
-
-				msg, ok := m[logMessageKey]
-				require.True(t, ok)
-				require.Equal(t, "hello", msg.AsString())
-
-				foo, ok := m["foo"]
-				require.True(t, ok)
-				require.Equal(t, []string{"bar1", "bar2", "bar3"}, foo.AsStringSlice())
-
-				requireCodeAttrs(t, m)
-			},
-		},
-		{
-			log: func(ctx context.Context, log *Logger) {
-				log.Ctx(ctx).
-					WithOptions(zap.Fields(zap.String("baz", "baz1"))).
-					WithOptions(zap.Fields(zap.String("faz", "faz1"))).
-					Warn("hello", zap.Strings("foo", []string{"bar1", "bar2", "bar3"}))
-			},
-			require: func(t *testing.T, event sdktrace.Event) {
-				m := attrMap(event.Attributes)
-
-				sev, ok := m[logSeverityKey]
-				require.True(t, ok)
-				require.Equal(t, "WARN", sev.AsString())
-
-				msg, ok := m[logMessageKey]
-				require.True(t, ok)
-				require.Equal(t, "hello", msg.AsString())
-
-				foo, ok := m["foo"]
-				require.True(t, ok)
-				require.Equal(t, []string{"bar1", "bar2", "bar3"}, foo.AsStringSlice())
-
-				baz, ok := m["baz"]
-				require.True(t, ok)
-				require.Equal(t, "baz1", baz.AsString())
-
-				faz, ok := m["faz"]
-				require.True(t, ok)
-				require.Equal(t, "faz1", faz.AsString())
-
-				requireCodeAttrs(t, m)
-			},
-		},
-		{
-			log: func(ctx context.Context, log *Logger) {
-				log.Ctx(ctx).Warn("hello", zap.Durations("foo", []time.Duration{time.Millisecond, time.Second, time.Hour}))
-			},
-			require: func(t *testing.T, event sdktrace.Event) {
-				m := attrMap(event.Attributes)
-
-				sev, ok := m[logSeverityKey]
-				require.True(t, ok)
-				require.Equal(t, "WARN", sev.AsString())
-
-				msg, ok := m[logMessageKey]
-				require.True(t, ok)
-				require.Equal(t, "hello", msg.AsString())
-
-				foo, ok := m["foo"]
-				require.True(t, ok)
-				require.Equal(t, []string{"1ms", "1s", "1h0m0s"}, foo.AsStringSlice())
-
-				requireCodeAttrs(t, m)
-			},
-		},
-		{
+		}, {
 			log: func(ctx context.Context, log *Logger) {
 				err := errors.New("some error")
 				log.Ctx(ctx).Error("hello", zap.Error(err))
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -191,7 +113,7 @@ func TestOtelZap(t *testing.T) {
 				log = log.Clone(WithStackTrace(true))
 				log.Ctx(ctx).Info("hello")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				stack, ok := m[semconv.ExceptionStacktraceKey]
@@ -205,7 +127,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Sugar().ErrorwContext(ctx, "hello", "foo", "bar")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -227,7 +149,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Sugar().ErrorfContext(ctx, "hello %s", "world")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -249,7 +171,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Sugar().Ctx(ctx).Errorw("hello", "foo", "bar")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -271,7 +193,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Sugar().InfowContext(ctx, "hello", "foo", "bar")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -293,7 +215,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Sugar().InfowContext(ctx, "sugary logs require keyAndValues to come in pairs", "so this is invalid, but it shouldn't panic")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				// no panic? success!
 			},
 		},
@@ -301,7 +223,7 @@ func TestOtelZap(t *testing.T) {
 			log: func(ctx context.Context, log *Logger) {
 				log.Sugar().Ctx(ctx).Errorf("hello %s", "world")
 			},
-			require: func(t *testing.T, event sdktrace.Event) {
+			require: func(t *testing.T, event otelutil.Event) {
 				m := attrMap(event.Attributes)
 
 				sev, ok := m[logSeverityKey]
@@ -326,7 +248,7 @@ func TestOtelZap(t *testing.T) {
 	for i, test := range tests {
 		test := test
 		t.Run(fmt.Sprint(i), func(t *testing.T) {
-			sr := tracetest.NewSpanRecorder()
+			sr := otelutil.NewSpanRecorder()
 			provider := sdktrace.NewTracerProvider(sdktrace.WithSpanProcessor(sr))
 			tracer := provider.Tracer("test")
 
@@ -343,14 +265,19 @@ func TestOtelZap(t *testing.T) {
 			events := spans[0].Events()
 			require.Equal(t, 1, len(events))
 
-			event := events[0]
+			event := otelutil.Event{
+				Name:                  events[0].Name,
+				Time:                  events[0].Time,
+				Attributes:            events[0].Attributes,
+				DroppedAttributeCount: events[0].DroppedAttributeCount,
+			}
 			require.Equal(t, "log", event.Name)
 			test.require(t, event)
 		})
 	}
 
 	t.Run("providing extra fields to be recorded on the span, and logged", func(t *testing.T) {
-		sr := tracetest.NewSpanRecorder()
+		sr := otelutil.NewSpanRecorder()
 		provider := sdktrace.NewTracerProvider(sdktrace.WithSpanProcessor(sr))
 		tracer := provider.Tracer("test")
 
