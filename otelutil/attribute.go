@@ -35,20 +35,7 @@ func Attribute(key string, value interface{}) attribute.KeyValue {
 		rv = rv.Slice(0, rv.Len())
 		fallthrough
 	case reflect.Slice:
-		switch reflect.TypeOf(value).Elem().Kind() {
-		case reflect.Bool:
-			return attribute.BoolSlice(key, rv.Interface().([]bool))
-		case reflect.Int:
-			return attribute.IntSlice(key, rv.Interface().([]int))
-		case reflect.Int64:
-			return attribute.Int64Slice(key, rv.Interface().([]int64))
-		case reflect.Float64:
-			return attribute.Float64Slice(key, rv.Interface().([]float64))
-		case reflect.String:
-			return attribute.StringSlice(key, rv.Interface().([]string))
-		default:
-			return attribute.KeyValue{Key: attribute.Key(key)}
-		}
+		return attribute.KeyValue{Key: attribute.Key(key)}
 	case reflect.Bool:
 		return attribute.Bool(key, rv.Bool())
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
