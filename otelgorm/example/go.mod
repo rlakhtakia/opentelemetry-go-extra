@@ -52,6 +52,6 @@ require (
 	google.golang.org/grpc v1.56.1 // indirect
 )
 
-replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/rlakhtakia/opentelemetry-go-extra => ./
 
-replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/uptrace/opentelemetry-go-extra => ./

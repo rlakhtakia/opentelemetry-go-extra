@@ -39,6 +39,6 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20230629202037-9506855d4529 // indirect
 )
 
-replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/rlakhtakia/opentelemetry-go-extra => ./
 
-replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/uptrace/opentelemetry-go-extra => ./

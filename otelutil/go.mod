@@ -13,8 +13,8 @@ require (
 )
 
 replace (
-	github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
-	github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+	github.com/rlakhtakia/opentelemetry-go-extra => ./
+	github.com/uptrace/opentelemetry-go-extra => ./
 	go.opentelemetry.io/otel => go.opentelemetry.io/otel v0.20.0
 	go.opentelemetry.io/otel/metric => go.opentelemetry.io/otel/metric v0.20.0
 	go.opentelemetry.io/otel/sdk => go.opentelemetry.io/otel/sdk v0.20.0

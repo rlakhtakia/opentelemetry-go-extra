@@ -61,6 +61,6 @@ require (
 	modernc.org/ccgo/v3 v3.16.14 // indirect
 )
 
-replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/rlakhtakia/opentelemetry-go-extra => ./
 
-replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/uptrace/opentelemetry-go-extra => ./

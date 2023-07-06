@@ -44,6 +44,6 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 )
 
-replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/rlakhtakia/opentelemetry-go-extra => ./
 
-replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/uptrace/opentelemetry-go-extra => ./

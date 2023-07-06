@@ -10,7 +10,7 @@ require (
 	github.com/stretchr/testify v1.8.3
 	go.opentelemetry.io/contrib v1.17.0
 	go.opentelemetry.io/otel v1.16.0
-	go.opentelemetry.io/otel/sdk v1.15.1
+	go.opentelemetry.io/otel/sdk v1.16.0
 	go.opentelemetry.io/otel/trace v1.16.0
 )
 
@@ -20,10 +20,10 @@ require (
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	go.opentelemetry.io/otel/metric v1.16.0 // indirect
-	golang.org/x/sys v0.7.0 // indirect
+	golang.org/x/sys v0.8.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/rlakhtakia/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/rlakhtakia/opentelemetry-go-extra => ./
 
-replace github.com/uptrace/opentelemetry-go-extra => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra
+replace github.com/uptrace/opentelemetry-go-extra => ./

@@ -19,13 +19,13 @@ go_mod_tidy:
 
 go_mod_replace:
 	set -e; for dir in $(PACKAGE_DIRS); do \
-	  echo "replace github.com/uptrace/opentelemetry-go-extra  => /usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra in $${dir}"; \
-	  (cd "$${dir}" && go mod edit -replace github.com/rlakhtakia/opentelemetry-go-extra=/usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra && go mod edit -replace github.com/uptrace/opentelemetry-go-extra=/usr/local/google/home/rlakhtakia/go/src/opentelemetry-go-extra); \
+	  echo "replace github.com/uptrace/opentelemetry-go-extra  => ./ in $${dir}"; \
+	  (cd "$${dir}" && go mod edit -replace github.com/rlakhtakia/opentelemetry-go-extra=./ && go mod edit -replace github.com/uptrace/opentelemetry-go-extra=./); \
 	done
 
-go_mod_all_with_vendor: go_mod_replace go_get_dependencies go_mod_tidy go_get go_mod_download go_mod_vendor
+go_mod_all_with_vendor: go_mod_replace go_get_dependencies go_mod_tidy go_mod_download go_mod_vendor
 
-go_mod_all: go_mod_replace go_get_dependencies go_mod_tidy go_get go_mod_download
+go_mod_all: go_mod_replace go_get_dependencies go_mod_tidy go_mod_download
 
 go_mod_download:
 	set -e; for dir in $(PACKAGE_DIRS); do \
@@ -56,10 +56,4 @@ go_get_dependencies:
 	set -e; for dir in $(PACKAGE_DIRS); do \
 	  echo "go get -d ./... in $${dir}"; \
 	  (cd "$${dir}" && go get -d ./...); \
-	done
-
-go_get:
-	set -e; for dir in $(PACKAGE_DIRS); do \
-	  echo "go get go.opentelemetry.io/otel@v0.20.0 in $${dir}"; \
-	  (cd "$${dir}" && go get go.opentelemetry.io/otel/semconv@v0.16.0 && go get go.opentelemetry.io/otel@v0.20.0); \
 	done
