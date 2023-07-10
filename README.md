@@ -1,4 +1,4 @@
-# OpenTelemetry instrumentations for Go
+# OpenTelemetry instrumentations for Go (Compatible with Otel v0.20.0)
 
 [![build workflow](https://github.com/rlakhtakia/opentelemetry-go-extra/actions/workflows/build.yml/badge.svg)](https://github.com/rlakhtakia/opentelemetry-go-extra/actions/workflows/build.yml)
 [![Chat](https://img.shields.io/badge/-telegram-red?color=white&logo=telegram&logoColor=black)](https://t.me/uptrace)
